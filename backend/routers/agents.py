@@ -55,3 +55,36 @@ async def get_agent(agent_id: str):
         if agent["id"] == agent_id:
             return agent
     raise HTTPException(status_code=404, detail="Agent not found")
+
+
+@router.post("/beta")
+async def init_agent_beta():
+    """Initialize Agent Beta (Market Scout)."""
+    return {
+        "status": "initialized",
+        "agent": "Beta",
+        "name": "Market Scout",
+        "details": "Market Scout initialized and monitoring market opportunities."
+    }
+
+
+@router.post("/omega")
+async def init_agent_omega():
+    """Initialize Agent Omega (Quant Engine)."""
+    return {
+        "status": "initialized",
+        "agent": "Omega",
+        "name": "Quant Engine",
+        "details": "Quant Engine initialized and algorithmic models active."
+    }
+
+
+@router.post("/sigma")
+async def init_agent_sigma():
+    """Initialize Agent Sigma (Media Studio)."""
+    return {
+        "status": "initialized",
+        "agent": "Sigma",
+        "name": "Media Studio",
+        "details": "Media Studio initialized and content generation pipeline online."
+    }
