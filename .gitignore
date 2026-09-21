@@ -1,0 +1,18 @@
+# Environment and dependencies
+venv/
+.venv/
+node_modules/
+dist/
+build/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
