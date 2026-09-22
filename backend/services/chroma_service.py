@@ -2,7 +2,6 @@ import os
 import uuid
 from typing import Dict, List, Optional, Any
 import chromadb
-from chromadb.config import Settings
 
 # Persistent ChromaDB storage directory
 CHROMA_DATA_DIR = os.getenv("CHROMA_DATA_DIR", "./chroma_db")
