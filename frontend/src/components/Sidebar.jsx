@@ -3,11 +3,11 @@ import { Layout, Bot, Database, Activity, ShieldCheck, Terminal, Layers } from '
 
 export default function Sidebar() {
   const navItems = [
-    { name: 'Dashboard', icon: Layout, active: true },
-    { name: 'Agents Orchestrator', icon: Bot, active: false },
-    { name: 'Shared Memory', icon: Database, active: false },
-    { name: 'System Telemetry', icon: Activity, active: false },
-    { name: 'Security & Audit', icon: ShieldCheck, active: false },
+    { name: 'Overview', icon: Layout, active: true },
+    { name: 'Quant Engine (Omega)', icon: Bot, active: false },
+    { name: 'Media Studio (Sigma)', icon: Activity, active: false },
+    { name: 'Asset Foundry', icon: ShieldCheck, active: false },
+    { name: 'RAG Memory Logs (Theta)', icon: Database, active: false },
   ];
 
   return (
