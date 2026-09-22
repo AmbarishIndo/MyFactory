@@ -13,16 +13,20 @@ _collection = None
 
 def get_chroma_client() -> chromadb.ClientAPI:
     global _client
-    if _client is None:
-        _client = chromadb.PersistentClient(path=CHROMA_DATA_DIR)
+    data_dir = os.getenv("CHROMA_DATA_DIR", CHROMA_DATA_DIR)
+    if _client is None or getattr(_client, "_data_dir", None) != data_dir:
+        _client = chromadb.PersistentClient(path=data_dir)
+        _client._data_dir = data_dir
     return _client
 
 
 def get_memory_collection():
     global _collection
-    if _collection is None:
-        client = get_chroma_client()
+    client = get_chroma_client()
+    data_dir = os.getenv("CHROMA_DATA_DIR", CHROMA_DATA_DIR)
+    if _collection is None or getattr(_collection, "_data_dir", None) != data_dir:
         _collection = client.get_or_create_collection(name="agent_memory")
+        _collection._data_dir = data_dir
     return _collection
 
 

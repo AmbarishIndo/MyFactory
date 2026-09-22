@@ -1,5 +1,8 @@
 import pandas as pd
-import pandas_ta_classic as ta
+try:
+    import pandas_ta as ta
+except ImportError:
+    import pandas_ta_classic as ta
 import yfinance as yf
 from typing import Dict, Any
 
