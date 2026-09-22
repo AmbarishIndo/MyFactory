@@ -1,10 +1,10 @@
 import pandas as pd
-import pandas_ta as ta
+import pandas_ta_classic as ta
 import yfinance as yf
 from typing import Dict, Any
 
 
-def fetch_market_data(ticker: str, period: str = "1mo", interval: str = "1d") -> pd.DataFrame:
+def fetch_market_data(ticker: str, period: str = "3mo", interval: str = "1d") -> pd.DataFrame:
     """
     Use yfinance to download historical OHLCV data for the given ticker.
     """
