@@ -2,9 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 try:
-    from .routers import agents, memory, quant
+    from .routers import agents, media, memory, quant
 except ImportError:
-    from backend.routers import agents, memory, quant
+    from backend.routers import agents, media, memory, quant
 
 app = FastAPI(
     title="Central Command Hub API",
@@ -23,6 +23,7 @@ app.add_middleware(
 
 # Include routers
 app.include_router(agents.router, prefix="/api")
+app.include_router(media.router, prefix="/api")
 app.include_router(memory.router, prefix="/api")
 app.include_router(quant.router, prefix="/api")
 

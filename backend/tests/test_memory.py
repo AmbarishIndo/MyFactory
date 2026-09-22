@@ -7,6 +7,17 @@ from fastapi.testclient import TestClient
 temp_dir = tempfile.mkdtemp()
 os.environ["CHROMA_DATA_DIR"] = temp_dir
 
+from backend.services import chroma_service
+
+@pytest.fixture(autouse=True)
+def reset_chroma_db(monkeypatch):
+    # Reset ChromaDB global state so each test starts with an isolated/clean collection
+    new_dir = tempfile.mkdtemp()
+    monkeypatch.setattr(chroma_service, "_client", None)
+    monkeypatch.setattr(chroma_service, "_collection", None)
+    monkeypatch.setenv("CHROMA_DATA_DIR", new_dir)
+    yield
+
 from backend.main import app
 
 client = TestClient(app)
