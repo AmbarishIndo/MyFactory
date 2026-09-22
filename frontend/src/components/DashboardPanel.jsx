@@ -3,10 +3,10 @@ import { Bot, Cpu, Database, Zap, Activity, CheckCircle2 } from 'lucide-react';
 
 export default function DashboardPanel() {
   const stats = [
-    { title: 'Total Agents', value: '12 Active', icon: Bot, change: '+2 initialized' },
+    { title: 'Vector DB Status', value: 'Disconnected', icon: Database, change: 'Offline' },
+    { title: 'Active Income Streams', value: '0', icon: Zap, change: 'Pending Deployment' },
+    { title: 'Total Managed Agents', value: '12 Active', icon: Bot, change: '+2 initialized' },
     { title: 'Cluster CPU Usage', value: '28.4%', icon: Cpu, change: 'Nominal' },
-    { title: 'Shared Memory Nodes', value: '1,024 MB', icon: Database, change: 'Synced' },
-    { title: 'Task Throughput', value: '142 / min', icon: Zap, change: '+12% vs last hour' },
   ];
 
   const recentAgents = [
@@ -17,11 +17,16 @@ export default function DashboardPanel() {
 
   return (
     <div className="p-6 space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold text-slate-100">Central Command Hub Overview</h2>
-        <p className="text-slate-400 text-sm mt-1">
-          Real-time status and control panel for multi-agent digital conglomerate orchestration.
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h2 className="text-2xl font-bold text-slate-100">Central Command Hub Overview</h2>
+          <p className="text-slate-400 text-sm mt-1">
+            Real-time status and control panel for multi-agent digital conglomerate orchestration.
+          </p>
+        </div>
+        <button className="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors shadow-sm self-start sm:self-auto">
+          Initialize Agent Alpha
+        </button>
       </div>
 
       {/* Stats grid */}
